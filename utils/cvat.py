@@ -42,7 +42,7 @@ def preprocessing(img0, img_size=1280, auto_size=64):
 
 def inference(context, img, img0, names_path, conf_thres=0.4, iou_thres=0.5):
     # preds dict
-    RESULTS = { 0: {'confidence': [], 'class': [], 'xmin': [], 'ymin': [], 'xmax': [],'ymax': []} }
+    RESULTS = { 0: {'confidence': None, 'class': None, 'xmin': None, 'ymin': None, 'xmax': None,'ymax': None} }
     # class names
     names = load_classes(names_path)
     
