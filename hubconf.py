@@ -55,7 +55,7 @@ def attempt_download(file, repo='ruhyadi/yolov5n'):  # from utils.downloads impo
 
     return str(file)
 
-def _create(name, tag=None, imgsize=640,  device=None):
+def _create(name, tag=None, imgsize=640,  device='cpu'):
     device = select_device(device)
 
     cwd = Path(os.getcwd())
@@ -73,11 +73,11 @@ def _create(name, tag=None, imgsize=640,  device=None):
     
     return model.to(device).eval()
 
-def yolor_nodeflux(imgsize=640, device=None):
+def yolor_nodeflux(imgsize=640, device='cpu'):
     # nodeflux yolor model
     return _create('yolor_nodeflux', imgsize=imgsize, device=device)
 
-def yolor_p6(imgsize=640, device=None):
+def yolor_p6(imgsize=640, device='cpu'):
     # nodeflux yolor model
     return _create('yolor_p6', imgsize=imgsize, device=device)
 
