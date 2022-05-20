@@ -23,7 +23,7 @@ def load_model(weights: str):
     
     return model
 
-def preprocessing(img0, img_size=1280, auto_size=64):
+def preprocessing(img0, img_size=640, auto_size=64):
     img0_arr = np.array(img0)
     img = letterbox(img0_arr, new_shape=img_size, auto_size=auto_size)[0]
     

@@ -161,3 +161,4 @@ cython_debug/
 
 # model weight
 *.pt
+hubconf copy.py
