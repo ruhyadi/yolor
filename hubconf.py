@@ -67,7 +67,7 @@ def _create(name, tag=None, imgsize=640,  device='cpu'):
 
     url=f'https://github.com/ruhyadi/yolor/releases/download/{tag}/{name}.pt',
 
-    model = Darknet(cwd / f'cfg/{name}.cfg', img_size=imgsize)
+    model = Darknet(f'./cfg/{name}.cfg', img_size=imgsize)
     model.load_state_dict(
         torch.hub.load_state_dict_from_url(url, map_location=device)['model'])
     
