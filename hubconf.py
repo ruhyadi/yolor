@@ -56,7 +56,6 @@ def attempt_download(file, repo='ruhyadi/yolov5n'):  # from utils.downloads impo
     return str(file)
 
 def _create(name, tag=None, imgsize=640,  device='cpu'):
-    dev = select_device(device)
 
     cwd = Path(os.getcwd())
     if tag is not None:
@@ -65,7 +64,7 @@ def _create(name, tag=None, imgsize=640,  device='cpu'):
             shell=True, 
             stderr=subprocess.STDOUT).decode().split()[-1]
 
-    url=f'https://github.com/ruhyadi/yolor/releases/download/{tag}/{name}.pt',
+    url=f'https://github.com/ruhyadi/yolor/releases/download/{tag}/{name}.pt'
 
     model = Darknet(f'./cfg/{name}.cfg', img_size=imgsize)
     model.load_state_dict(
@@ -84,12 +83,6 @@ def yolor_p6(imgsize=640, device='cpu'):
 if __name__ == '__main__':
 
     # model = torch.hub.load('ruhyadi/yolov5n:cvat-v1.2', 'yolov5_nodeflux')
-    model = torch.hub.load('ruhyadi/yolor:v1.3-cvat', 'yolor_p6')
+    model = torch.hub.load('ruhyadi/yolor:v1.1-cvat', 'yolor_p6')
 
     print(model)
-
-    # imgs = ['data/images/bus.jpg']
-
-    # results = model(imgs, size=640)
-    # json = results.pandas().xyxy[0].to_dict('records')
-    # print(json)
